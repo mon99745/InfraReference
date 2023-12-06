@@ -10,7 +10,7 @@ set JAVA_OPTS=%JAVA_OPTS% -Xms256m
 set JAVA_OPTS=%JAVA_OPTS% -Xmx2g
 set JAVA_OPTS=%JAVA_OPTS% -Dfile.encoding=UTF-8
 set JAVA_OPTS=%JAVA_OPTS% -Duser.timezone=Asia/Seoul
-set JAVA_OPTS=%JAVA_OPTS% -Dspring.profiles.active=demo
+set JAVA_OPTS=%JAVA_OPTS% -Dspring.profiles.active=local
 
 set WAR_PATH=build/libs/demo-1.0.0.war
 @REM set JAVA_OPTS=%JAVA_OPTS% -Dhazelcast.socket.bind.any=false

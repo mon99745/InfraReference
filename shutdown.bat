@@ -1,6 +1,13 @@
 @REM usage: shutdown demo
+call setenv
 
-set demo=%1
-set /P PID=<%MODULE_NAME%.pid
+FOR /F "tokens=5 delims= " %%P IN ('netstat -nao ^| find "LISTENING" ^| find "8080"') DO (
+    set "PID=%%P"
+)
 
-taskkill /f /pid %PID%
+IF DEFINED PID (
+    echo Stopping the application with PID: %PID%
+    taskkill /F /PID %PID%
+) ELSE (
+    echo No application is running 8080
+)

@@ -3,6 +3,8 @@ plugins {
 	id 'war'
 	id 'org.springframework.boot' version '2.7.17'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id 'jacoco'
+	id 'org.sonarqube' version '3.5.0.2730'
 }
 
 group = 'com.example'
@@ -30,6 +32,8 @@ dependencies {
 	implementation 'commons-io:commons-io:2.11.0'
 	implementation 'com.google.code.gson:gson'
 	implementation 'com.google.guava:guava:31.1-jre'
+	implementation 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.3'
+
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
@@ -44,4 +48,33 @@ tasks.named('bootBuildImage') {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+test {
+	useJUnitPlatform()
+	finalizedBy 'jacocoTestReport'
+}
+
+jacoco {
+	toolVersion = '0.8.10'
+}
+
+jacocoTestReport {
+	reports {
+		xml.enabled true
+		csv.enabled false
+		html.enabled false
+	}
+}
+
+sonarqube {
+	properties {
+		property 'sonar.projectKey', 'demo'
+		property 'sonar.projectName', 'demo'
+		property "sonar.sources", "src"
+		property "sonar.language", "java"
+		property "sonar.sourceEncoding", "UTF-8"
+		property "sonar.host.url", "http://10.10.40.157:9000" // 소나큐브 서버 URL로 변경
+		property "sonar.login", "sqp_c577f9bb1d6cae7422920544b3ce385af408d723" // 소나큐브 서버에서 생성한 토큰으로 변경
+	}
 }

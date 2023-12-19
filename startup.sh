@@ -1,4 +1,4 @@
-echo usage: ./startup.sh didm
+echo usage: ./startup.sh demo
 
 ./setenv.sh
 

@@ -1,4 +1,4 @@
-# usage: ./sonar.sh didm test
+# usage: ./sonar.sh demo test
 
 JAVA_HOME="C:/jdk/jdk-11"
 

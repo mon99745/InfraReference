@@ -2,7 +2,8 @@
 
 Infrastructure Reference
 CI/CD
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/1b4305b0-ac14-4b07-83e6-7464904fc0a3/5ac45581-c313-4bc8-90b9-ad9faae47444/Untitled.png)
+
+![Untitled (10)](https://github.com/mon99745/InfraReference/assets/84507123/ad18ad07-b53e-4dc5-b22b-83685b0e4d6a)
 
 - JVM 
 - Docker
